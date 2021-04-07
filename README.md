@@ -1,5 +1,3 @@
-# aulas-mentorama
+# Repositório para entrega dos exercicios do curso da MENTORAMA
 
-Nova linha
-
-Linha da Branch
+1 - Menu (Aplicação terminal simples que simula um menu com iteração);
