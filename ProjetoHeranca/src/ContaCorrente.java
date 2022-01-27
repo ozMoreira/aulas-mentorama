@@ -1,14 +1,19 @@
 public class ContaCorrente extends Conta{
     private double chequeEspecial;
 
-    public ContaCorrente(int numero, int agencia, String banco, double saldo, double chequeEspecial) {
+    public ContaCorrente(
+            int numero,
+            int agencia,
+            String banco,
+            double saldo,
+            double chequeEspecial) {
         super(numero, agencia, banco, saldo);
         this.chequeEspecial = chequeEspecial;
     }
 
     @Override
     public String toString() {
-        return "ContaCorrente{" +
+        return super.toString() + " ContaCorrente{" +
                 "chequeEspecial=" + chequeEspecial +
                 '}';
     }
@@ -18,13 +23,20 @@ public class ContaCorrente extends Conta{
     }
 
     @Override
-    public double getSaca() {
-        return 0;
+    public boolean saca(double valor){
+        double limiteTotal = this.chequeEspecial + this.saldo;
+        if (limiteTotal > 0 && limiteTotal >= valor  && valor > 0){
+            this.saldo -= valor;
+            return true;
+        }
+        else {
+            System.err.println("O valor desejado é maior que o seu limite disponível");
+            return false;
+        }
     }
 
-    @Override
-    public double getDeposita() {
-        return 0;
+    public void deposita(double valor) {
+        {this.saldo -= valor;}
     }
 }
 
